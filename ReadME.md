@@ -1,6 +1,6 @@
 # Todos:
 
-1. ~~ make camera setup with opencv~~
+1. ~~make camera setup with opencv~~
 2. ~~train recognition with images and camera~~
 3. make backend api to transfer/handle data
 4. create a mongo db cluster and use through backend
