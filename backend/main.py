@@ -6,6 +6,8 @@ app = FastAPI(
     title="Student Tracking Backend",
     description="Tracks student's whereabouts",
     version="0.1",
+    docs_url=None,
+    redoc_url=None
 )
 
 app.include_router(router)
