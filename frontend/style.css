@@ -30,6 +30,7 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    margin-bottom: 5px;
 }
 button {
     width: 100%;
@@ -48,4 +49,47 @@ button:hover {
     font-size: 16px;
     color: #333;
     text-align: center;
+}
+
+.location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.location img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.result {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.result li {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.studImg {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.hide {
+    display: none;
 }

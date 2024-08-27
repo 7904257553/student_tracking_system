@@ -1,37 +1,36 @@
-document.getElementById('trainCameraButton').addEventListener('click', function() {
-    const name = document.getElementById('name').value;
-    if (name.trim() === '') {
-        alert('Please enter a name');
-        return;
-    }
+const stud_name = document.getElementById('name');
+const locate_btn = document.getElementById('locate');
+const camID = document.getElementById('CamId');
+const camID_btn = document.getElementById('CamId_btn');
+const location_div = document.getElementById('location');
+const location_div_h1 = document.getElementById('location_h1');
+const result_div = document.getElementById('result');
 
-    fetch('/train_camera', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name: name })
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('result').textContent = data.message;
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        document.getElementById('result').textContent = 'An error occurred.';
-    });
-});
 
-document.getElementById('trainFolderButton').addEventListener('click', function() {
-    fetch('/train_folder', {
-        method: 'POST',
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('result').textContent = data.message;
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        document.getElementById('result').textContent = 'An error occurred.';
+const URI = "https://student-tracking-3gbzd03i9-nasheeths-projects.vercel.app"
+
+locate_btn.addEventListener('click', () => {
+    fetch(URI + "/locate/" + stud_name.value)  
+        .then((res) => res.json())
+        .then((data) => {
+        location_div_h1.innerHTML = data.location;
+        location_div.classList.remove('hide');
+        }).catch((err) => {
+            console.log(err);
+        });
     });
-});
+
+camID_btn.addEventListener('click', () => {
+    fetch(URI + "/camera/" + camID.value)  
+        .then((res) => res.json())
+        .then((data) => {
+            var res = "";
+        data.forEach(student => {
+            res += `<li><img src="./assets/student.png" alt="student" class="studImg">${student.name}</li>`;
+        });
+        result_div.innerHTML = res;
+        result_div.classList.remove('hide');
+        }).catch((err) => {
+            console.log(err);
+        });
+    });

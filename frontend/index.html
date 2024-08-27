@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
     <title>Student Tracking System</title>
+    <link rel="icon" href="./assets/security-camera.png">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -13,18 +14,20 @@
         <div class="form-group">
             <label for="name">Enter Student Details:</label>
             <input type="text" id="name" placeholder="Enter student's name">
-            <button id="trainCameraButton">Locate Student</button>
+            <button id="locate">Locate Student</button>
         </div>
-        
+        <div class="location hide" id="location">
+            <h2 id="location_h1">Cam1</h2>
+            <img src="./assets/security-camera.png" alt="Camera" id="camImg">
+        </div>
         
         <div class="form-group">
-            <label for="name">Enter Camera ID:</label>
-            <input type="text" id="name" placeholder="Enter Camera ID">
-            <button id="trainFolderButton">Show Students in a camera</button>
+            <label for="CamId">Enter Camera ID:</label>
+            <input type="text" id="CamId" placeholder="Enter Camera ID">
+            <button id="CamId_btn">Show Students in a camera</button>
         </div>
         
-        
-        <div id="result"></div>
+        <div id="result" class="result hide"></div>
     </div>
         
         
