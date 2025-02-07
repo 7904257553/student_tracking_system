@@ -17,7 +17,7 @@ face_set = set()
 
 def Send_located_face(name):
     url = env_values["BACKEND"] + "/located_faces"
-    data = {"name": name, "location": "Cam1"}
+    data = {"name": name, "location": "CamJAN"}
     try:
         requests.post(url, json=data)
     except Exception as e:
@@ -42,7 +42,7 @@ def cam_check():
             face_locations, face_encodings
         ):
             matches = face_recognition.compare_faces(
-                known_face_encodings, face_encoding
+                known_face_encodings, face_encoding, tolerance=0.5
             )
             name = "Unknown"
             if True in matches:
